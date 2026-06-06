@@ -1,0 +1,22 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - ASPNETCORE_URLS=http://+:80
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    environment:
+      - PROXY_URL=http://api:80
+      - PORT=80
+    ports:
+      - "${UI_PORT:-80}:80"
+    depends_on:
+      - api
+    restart: unless-stopped
