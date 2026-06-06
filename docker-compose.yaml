@@ -9,6 +9,7 @@ services:
 
   ui:
     image: ghcr.io/amir734jj/stream-subscription-ui:latest
+    pull_policy: always
     environment:
       - PROXY_URL=http://api:80
       - PORT=80
