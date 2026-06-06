@@ -16,7 +16,7 @@ cp .env.example .env
 | Variable | Description | Default |
 |---|---|---|
 | `DATABASE_URL` | PostgreSQL connection string for the API | — |
-| `UI_PORT` | Host port for the UI | `8080` |
+| `UI_PORT` | Host port for the UI (`0` = random free port) | `0` |
 
 ## Run
 
