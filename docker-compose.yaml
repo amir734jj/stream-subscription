@@ -1,17 +1,13 @@
 services:
   api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
+    image: ghcr.io/amir734jj/stream-subscription-api:latest
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - ASPNETCORE_URLS=http://+:80
     restart: unless-stopped
 
   ui:
-    build:
-      context: ./ui
-      dockerfile: Dockerfile
+    image: ghcr.io/amir734jj/stream-subscription-ui:latest
     environment:
       - PROXY_URL=http://api:80
       - PORT=80
