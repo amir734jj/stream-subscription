@@ -1,6 +1,7 @@
 services:
   api:
     image: ghcr.io/amir734jj/stream-subscription-api:latest
+    pull_policy: always
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - ASPNETCORE_URLS=http://+:80
